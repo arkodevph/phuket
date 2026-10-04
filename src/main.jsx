@@ -358,6 +358,7 @@ function App() {
             <span className="micro">Phuket visit planner / 004</span>
             <h2>Make the visit<br /><i>your own.</i></h2>
             <p>A holiday, a long stay, or the first step toward a future home. Tell us when you’re coming and what kind of Phuket you want to experience.</p>
+            <a className="inquiry__phone" href="tel:+61477067457">Call or text <strong>0477 067 457</strong> <Arrow /></a>
             <div className="inquiry__direct"><span>01</span><span>Choose your dates and coast</span><span>02</span><span>Describe your ideal stay</span><span>03</span><span>Review and send your brief</span></div>
           </div>
           <TripPlanner />
@@ -368,7 +369,7 @@ function App() {
           <div className="footer__columns">
             <div><span className="micro">Nara Phuket</span><p>Independent property search<br />and buyer-side guidance.</p></div>
             <div><span className="micro">West coast</span><a href="#places">Patong</a><a href="#places">Karon</a><a href="#places">Kata</a><a href="#places">Kamala</a></div>
-            <div><span className="micro">Contact</span><a href="mailto:hello@example.com">hello@example.com</a><a href="tel:+000000000000">+00 000 000 000</a><a href="#inquire">Message an advisor ↗</a></div>
+            <div><span className="micro">Contact</span><a href="mailto:hello@example.com">hello@example.com</a><a href="tel:+61477067457">0477 067 457</a><a href="#inquire">Message an advisor ↗</a></div>
             <a className="footer__mark" href="#top" aria-label="Back to top"><b>N</b><span>↑</span><small>Back to top</small></a>
           </div>
           <div className="footer__legal"><span>© 2026 Placeholder Property Co.</span><span>Information / privacy / terms</span><span>Phuket · Thailand</span></div>

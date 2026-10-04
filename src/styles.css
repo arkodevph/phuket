@@ -198,6 +198,8 @@ a:hover .arrow, button:hover .arrow { transform: translate(4px, -4px); }
 .inquiry__intro h2 { font: 400 clamp(64px, 7.2vw, 110px)/.8 var(--serif); letter-spacing: -.06em; margin: 50px 0 38px; }
 .inquiry__intro h2 i { color: var(--lime); font-weight: 400; }
 .inquiry__intro > p { font-size: 12px; line-height: 1.75; max-width: 370px; }
+.inquiry__phone { align-items: center; border-bottom: 1px solid var(--lime); color: var(--cream); display: inline-flex; font: 9px var(--mono); gap: 9px; letter-spacing: .04em; margin-top: 25px; padding-bottom: 8px; text-transform: uppercase; }
+.inquiry__phone strong { color: var(--lime); font: 500 17px var(--sans); letter-spacing: 0; }
 .inquiry__direct { border-top: 1px solid var(--white-line); display: grid; font: 10px var(--mono); grid-template-columns: 90px 1fr; margin-top: 60px; padding-top: 18px; row-gap: 12px; }
 .inquiry__direct span:nth-child(odd) { color: var(--lime); font-size: 8px; }
 .inquiry__direct span:nth-child(even) { color: rgba(243,240,231,.7); font-size: 8px; letter-spacing: .04em; }
