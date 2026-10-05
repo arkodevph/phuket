@@ -67,17 +67,17 @@ function GridLines() {
 
 function Loader({ onSkip }) {
   return (
-    <div className="loader" aria-label="Nara Phuket is loading">
+    <div className="loader" aria-label="Godspeed RealState is loading">
       <div className="loader__top">
-        <span>Nara / Phuket</span>
+        <span>Godspeed RealState / Phuket</span>
         <button type="button" onClick={onSkip}>Skip intro ↗</button>
       </div>
       <svg className="loader__overlay" viewBox="0 0 1000 1000" preserveAspectRatio="none" aria-hidden="true">
         <defs>
           <mask id="loader-cutout" maskUnits="userSpaceOnUse" maskContentUnits="userSpaceOnUse" x="0" y="0" width="1000" height="1000" style={{ maskType: 'luminance' }}>
             <rect width="1000" height="1000" fill="white" />
-            {Array.from('NARA', (letter, index) => (
-              <text className="loader__letter-cutout" key={index} x={index * 250} y="945" textLength="250" lengthAdjust="spacingAndGlyphs" fill="black">{letter}</text>
+            {Array.from('GODSPEED', (letter, index) => (
+              <text className="loader__letter-cutout" key={index} x={index * 125} y="945" textLength="125" lengthAdjust="spacingAndGlyphs" fill="black">{letter}</text>
             ))}
           </mask>
         </defs>
@@ -103,7 +103,7 @@ function TripPlanner() {
   const setField = (field, value) => setTrip((current) => ({ ...current, [field]: value }));
 
   const emailBody = [
-    `Hello Nara Phuket,`,
+    `Hello Godspeed RealState,`,
     `I'd like help planning a visit to Phuket.`,
     ``,
     `Dates: ${trip.arrival} to ${trip.departure}`,
@@ -197,10 +197,10 @@ function App() {
         defaults: { ease: 'power4.inOut' },
         onComplete: () => setLoaderVisible(false),
       });
-      gsap.utils.toArray('.loader__letter-cutout').forEach((letter) => {
+      gsap.utils.toArray('.loader__letter-cutout').forEach((letter, index) => {
         timeline
-          .set(letter, { opacity: 1 })
-          .fromTo(letter, { scale: 0.55, transformOrigin: '50% 50%' }, { scale: 1, duration: 0.43, ease: 'back.out(1.7)' });
+          .set(letter, { opacity: 1 }, index * 0.18)
+          .fromTo(letter, { scale: 0.55, transformOrigin: '50% 50%' }, { scale: 1, duration: 0.43, ease: 'back.out(1.7)' }, index * 0.18);
       });
       timeline
         .to('.loader', { opacity: 0, duration: 0.9, ease: 'sine.inOut' }, '+=0.3')
@@ -240,7 +240,7 @@ function App() {
           <div className="hero__veil" />
           <GridLines />
           <header className="site-nav">
-            <a className="brand" href="#top"><span>N</span><b>Nara Phuket</b><small>Property office</small></a>
+            <a className="brand" href="#top"><span>G</span><b>Godspeed RealState</b><small>Phuket property</small></a>
             <nav aria-label="Primary navigation"><a href="#places">Locations</a><a href="#ownership">Ownership</a><a href="#inquire">Enquire</a></nav>
             <a className="nav-contact" href="#inquire">Plan your visit <Arrow /></a>
           </header>
@@ -259,7 +259,7 @@ function App() {
 
         <section className="archipelago" id="discover" aria-labelledby="archipelago-title">
           <div className="archipelago__intro" data-reveal>
-            <span className="micro">Nara Phuket / island notes</span>
+            <span className="micro">Godspeed RealState / island notes</span>
             <h2 id="archipelago-title">The unmatched<br />beauty of the<br />Andaman coast.</h2>
             <p>Four west-coast neighborhoods, each with its own pace. Start with the place, then find the address that belongs there.</p>
           </div>
@@ -367,12 +367,12 @@ function App() {
         <footer className="footer">
           <div className="footer__headline">A better place<br /><i>to begin.</i></div>
           <div className="footer__columns">
-            <div><span className="micro">Nara Phuket</span><p>Independent property search<br />and buyer-side guidance.</p></div>
+            <div><span className="micro">Godspeed RealState</span><p>Independent property search<br />and buyer-side guidance.</p></div>
             <div><span className="micro">West coast</span><a href="#places">Patong</a><a href="#places">Karon</a><a href="#places">Kata</a><a href="#places">Kamala</a></div>
             <div><span className="micro">Contact</span><a href="mailto:hello@example.com">hello@example.com</a><a href="tel:+61477067457">0477 067 457</a><a href="#inquire">Message an advisor ↗</a></div>
-            <a className="footer__mark" href="#top" aria-label="Back to top"><b>N</b><span>↑</span><small>Back to top</small></a>
+            <a className="footer__mark" href="#top" aria-label="Back to top"><b>G</b><span>↑</span><small>Back to top</small></a>
           </div>
-          <div className="footer__legal"><span>© 2026 Placeholder Property Co.</span><span>Information / privacy / terms</span><span>Phuket · Thailand</span></div>
+          <div className="footer__legal"><span>© 2026 Godspeed RealState</span><span>Information / privacy / terms</span><span>Phuket · Thailand</span></div>
         </footer>
       </main>
     </div>
