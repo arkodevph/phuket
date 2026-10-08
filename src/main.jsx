@@ -69,9 +69,9 @@ function Loader({ onSkip }) {
   const letters = 'GOODSPEED';
   const letterWidth = 1000 / letters.length;
   return (
-    <div className="loader" aria-label="Goodspeed RealState is loading">
+    <div className="loader" aria-label="Goodspeed Real Esteate is loading">
       <div className="loader__top">
-        <span>Goodspeed RealState / Phuket</span>
+        <span>Goodspeed Real Esteate / Phuket</span>
         <button type="button" onClick={onSkip}>Skip intro ↗</button>
       </div>
       <svg className="loader__overlay" viewBox="0 0 1000 1000" preserveAspectRatio="none" aria-hidden="true">
@@ -105,7 +105,7 @@ function TripPlanner() {
   const setField = (field, value) => setTrip((current) => ({ ...current, [field]: value }));
 
   const emailBody = [
-    `Hello Goodspeed RealState,`,
+    `Hello Goodspeed Real Esteate,`,
     `I'd like help planning a visit to Phuket.`,
     ``,
     `Dates: ${trip.arrival} to ${trip.departure}`,
@@ -242,7 +242,7 @@ function App() {
           <div className="hero__veil" />
           <GridLines />
           <header className="site-nav">
-            <a className="brand" href="#top"><span>G</span><b>Goodspeed RealState</b><small>Phuket property</small></a>
+            <a className="brand" href="#top"><span>G</span><b>Goodspeed Real Esteate</b><small>Phuket property</small></a>
             <nav aria-label="Primary navigation"><a href="#places">Locations</a><a href="#ownership">Ownership</a><a href="#inquire">Enquire</a></nav>
             <a className="nav-contact" href="#inquire">Plan your visit <Arrow /></a>
           </header>
@@ -261,7 +261,7 @@ function App() {
 
         <section className="archipelago" id="discover" aria-labelledby="archipelago-title">
           <div className="archipelago__intro" data-reveal>
-            <span className="micro">Goodspeed RealState / island notes</span>
+            <span className="micro">Goodspeed Real Esteate / island notes</span>
             <h2 id="archipelago-title">The unmatched<br />beauty of the<br />Andaman coast.</h2>
             <p>Four west-coast neighborhoods, each with its own pace. Start with the place, then find the address that belongs there.</p>
           </div>
@@ -369,12 +369,12 @@ function App() {
         <footer className="footer">
           <div className="footer__headline">A better place<br /><i>to begin.</i></div>
           <div className="footer__columns">
-            <div><span className="micro">Goodspeed RealState</span><p>Independent property search<br />and buyer-side guidance.</p></div>
+            <div><span className="micro">Goodspeed Real Esteate</span><p>Independent property search<br />and buyer-side guidance.</p></div>
             <div><span className="micro">West coast</span><a href="#places">Patong</a><a href="#places">Karon</a><a href="#places">Kata</a><a href="#places">Kamala</a></div>
             <div><span className="micro">Contact</span><a href="mailto:hello@example.com">hello@example.com</a><a href="tel:+61477067457">0477 067 457</a><a href="#inquire">Message an advisor ↗</a></div>
             <a className="footer__mark" href="#top" aria-label="Back to top"><b>G</b><span>↑</span><small>Back to top</small></a>
           </div>
-          <div className="footer__legal"><span>© 2026 Goodspeed RealState</span><span>Information / privacy / terms</span><span>Phuket · Thailand</span></div>
+          <div className="footer__legal"><span>© 2026 Goodspeed Real Esteate</span><span>Information / privacy / terms</span><span>Phuket · Thailand</span></div>
         </footer>
       </main>
     </div>
