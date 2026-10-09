@@ -17,7 +17,7 @@ html { scroll-behavior: smooth; }
 body { background: var(--navy); color: var(--navy); font-family: var(--sans); margin: 0; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
 body.is-loading { overflow: hidden; }
 a { color: inherit; text-decoration: none; }
-button, input { color: inherit; font: inherit; }
+button, input, select, textarea { color: inherit; font: inherit; }
 button { -webkit-tap-highlight-color: transparent; }
 img { display: block; }
 .micro { font: 9px/1.5 var(--mono); letter-spacing: .13em; text-transform: uppercase; }
@@ -46,7 +46,10 @@ a:hover .arrow, button:hover .arrow { transform: translate(4px, -4px); }
 .brand b { font: 500 12px var(--sans); letter-spacing: .01em; }
 .brand small { font: 7px var(--mono); letter-spacing: .12em; text-transform: uppercase; }
 .site-nav nav { display: flex; font: 8px var(--mono); gap: 35px; letter-spacing: .11em; text-transform: uppercase; }
-.nav-contact { border-bottom: 1px solid var(--lime); font: 8px var(--mono); justify-self: end; letter-spacing: .1em; padding-bottom: 7px; text-transform: uppercase; }
+.nav-contact { align-items: center; border-bottom: 1px solid var(--lime); display: grid; gap: 4px 12px; grid-template-columns: 1fr auto; justify-self: end; padding: 8px 0; }
+.nav-contact > span { color: var(--lime); font: 8px var(--mono); letter-spacing: .08em; text-transform: uppercase; }
+.nav-contact strong { font: 600 20px var(--sans); grid-column: 1; }
+.nav-contact .arrow { grid-column: 2; grid-row: 1 / span 2; }
 .hero__title { font: 400 clamp(76px, 10.9vw, 174px)/.77 var(--serif); left: 4.2vw; letter-spacing: -.06em; position: absolute; top: 26%; z-index: 4; }
 .hero__title span { display: block; }
 .hero__title span:last-child { margin-left: 13vw; overflow: hidden; }
@@ -198,43 +201,56 @@ a:hover .arrow, button:hover .arrow { transform: translate(4px, -4px); }
 .inquiry__intro h2 { font: 400 clamp(64px, 7.2vw, 110px)/.8 var(--serif); letter-spacing: -.06em; margin: 50px 0 38px; }
 .inquiry__intro h2 i { color: var(--lime); font-weight: 400; }
 .inquiry__intro > p { font-size: 12px; line-height: 1.75; max-width: 370px; }
-.inquiry__phone { align-items: center; border-bottom: 1px solid var(--lime); color: var(--cream); display: inline-flex; font: 9px var(--mono); gap: 9px; letter-spacing: .04em; margin-top: 25px; padding-bottom: 8px; text-transform: uppercase; }
-.inquiry__phone strong { color: var(--lime); font: 500 17px var(--sans); letter-spacing: 0; }
-.inquiry__direct { border-top: 1px solid var(--white-line); display: grid; font: 10px var(--mono); grid-template-columns: 90px 1fr; margin-top: 60px; padding-top: 18px; row-gap: 12px; }
+.inquiry__phone { align-items: center; border-bottom: 1px solid var(--lime); color: var(--cream); display: inline-grid; gap: 10px 18px; grid-template-columns: 1fr auto; margin-top: 30px; padding-bottom: 14px; }
+.inquiry__phone > span { font: 9px var(--mono); letter-spacing: .08em; text-transform: uppercase; }
+.inquiry__phone strong { color: var(--lime); font: 600 clamp(28px, 3vw, 42px) var(--sans); grid-column: 1; letter-spacing: -.03em; }
+.inquiry__phone .arrow { grid-column: 2; grid-row: 1 / span 2; }
+.inquiry__intro > .inquiry__international { color: rgba(243,240,231,.7); font-size: 11px; }
+.inquiry__international a { text-decoration: underline; text-underline-offset: 3px; }
+.inquiry__email { display: inline-block; font-size: 13px; overflow-wrap: anywhere; text-decoration: underline; text-underline-offset: 4px; }
+.inquiry__direct { border-top: 1px solid var(--white-line); display: grid; font: 10px var(--mono); grid-template-columns: 44px 1fr; margin-top: 60px; padding-top: 18px; row-gap: 12px; }
 .inquiry__direct span:nth-child(odd) { color: var(--lime); font-size: 8px; }
 .inquiry__direct span:nth-child(even) { color: rgba(243,240,231,.7); font-size: 8px; letter-spacing: .04em; }
-.trip-planner { border: 1px solid var(--white-line); min-height: 610px; padding: 28px; }
-.trip-planner__steps { border-bottom: 1px solid var(--white-line); display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; padding-bottom: 20px; }
-.trip-planner__steps button { background: none; border: 0; color: rgba(243,240,231,.42); cursor: pointer; font: 8px var(--mono); letter-spacing: .1em; padding: 0; text-align: left; text-transform: uppercase; }
-.trip-planner__steps button:disabled { cursor: default; }
-.trip-planner__steps button span { border-bottom: 2px solid currentColor; display: block; margin-bottom: 12px; padding-bottom: 8px; }
-.trip-planner__steps button.is-active { color: var(--lime); }
-.trip-planner__heading { margin: 30px 0 25px; }
-.trip-planner__heading .micro { color: var(--lime); }
-.trip-planner__heading h3 { font: 400 clamp(40px, 4.5vw, 65px)/.9 var(--serif); letter-spacing: -.05em; margin: 14px 0 0; }
-.trip-planner form > label, .trip-planner__pair > label { border-bottom: 1px solid var(--white-line); display: block; min-width: 0; padding: 16px 0; }
-.trip-planner label > span, .trip-planner__choice legend { color: rgba(243,240,231,.7); display: block; font: 8px var(--mono); letter-spacing: .1em; margin-bottom: 10px; text-transform: uppercase; }
-.trip-planner input:not([type='radio']), .trip-planner select, .trip-planner textarea { background: transparent; border: 0; color: var(--cream); font: 400 21px var(--serif); outline: 0; padding: 2px 0; resize: vertical; width: 100%; }
-.trip-planner input::placeholder, .trip-planner textarea::placeholder { color: rgba(243,240,231,.36); }
-.trip-planner select { appearance: none; background-image: linear-gradient(45deg, transparent 50%, var(--cream) 50%), linear-gradient(135deg, var(--cream) 50%, transparent 50%); background-position: calc(100% - 13px) 12px, calc(100% - 8px) 12px; background-repeat: no-repeat; background-size: 5px 5px, 5px 5px; cursor: pointer; padding-right: 22px; }
-.trip-planner select option { background: var(--navy); color: var(--cream); }
-.trip-planner input[type='date'] { color-scheme: dark; font: 14px var(--mono); min-height: 28px; }
-.trip-planner input:focus-visible, .trip-planner select:focus-visible, .trip-planner textarea:focus-visible { box-shadow: 0 2px 0 var(--lime); }
-.trip-planner__pair { display: grid; gap: 22px; grid-template-columns: 1fr 1fr; }
-.trip-planner__choice { border: 0; border-bottom: 1px solid var(--white-line); margin: 0; padding: 18px 0; }
-.trip-planner__choice legend { float: left; width: 100%; }
-.trip-planner__choice label { border: 1px solid var(--white-line); cursor: pointer; display: inline-flex; font: 9px var(--mono); margin: 4px 7px 4px 0; padding: 10px 12px; }
-.trip-planner__choice label.is-selected { background: var(--lime); border-color: var(--lime); color: var(--navy); }
-.trip-planner__choice input { opacity: 0; position: absolute; }
-.trip-planner__choice label:focus-within { outline: 2px solid var(--cream); outline-offset: 3px; }
-.trip-planner__actions { align-items: center; display: flex; gap: 15px; justify-content: space-between; margin-top: 25px; }
-.trip-planner__back { background: transparent; border: 0; color: var(--cream); cursor: pointer; font: 8px var(--mono); letter-spacing: .1em; text-transform: uppercase; }
-.trip-planner__next { align-items: center; background: var(--lime); border: 0; color: var(--navy); cursor: pointer; display: inline-flex; font: 8px var(--mono); gap: 35px; justify-content: space-between; letter-spacing: .1em; min-height: 53px; padding: 0 18px; text-transform: uppercase; }
-.trip-planner__review dl { border-top: 1px solid var(--white-line); margin: 0; }
-.trip-planner__review dl > div { border-bottom: 1px solid var(--white-line); display: grid; gap: 20px; grid-template-columns: 100px 1fr; padding: 11px 0; }
-.trip-planner__review dt { color: rgba(243,240,231,.52); font: 8px var(--mono); text-transform: uppercase; }
-.trip-planner__review dd { font: 17px var(--serif); margin: 0; overflow-wrap: anywhere; }
-.trip-planner__review p, .trip-planner__notice { color: rgba(243,240,231,.68); display: block; font: 9px/1.6 var(--mono); margin: 24px 0 0; }
+.buyer-enquiry { border: 1px solid var(--white-line); min-width: 0; padding: 28px; }
+.buyer-enquiry__steps { border-bottom: 1px solid var(--white-line); display: grid; gap: 24px; grid-template-columns: 1fr 1fr; list-style: none; margin: 0; padding: 0 0 20px; }
+.buyer-enquiry__steps li { color: rgba(243,240,231,.55); font: 9px var(--mono); letter-spacing: .06em; text-transform: uppercase; }
+.buyer-enquiry__steps li > span { border-bottom: 2px solid currentColor; display: block; margin-bottom: 12px; padding-bottom: 8px; }
+.buyer-enquiry__steps li.is-active { color: var(--lime); }
+.buyer-enquiry__heading { margin: 30px 0 25px; }
+.buyer-enquiry__heading .micro { color: var(--lime); }
+.buyer-enquiry__heading h3 { font: 400 clamp(40px, 4.5vw, 65px)/.95 var(--serif); letter-spacing: -.04em; margin: 14px 0 0; }
+.buyer-enquiry form > label, .buyer-enquiry__pair > label { border-bottom: 1px solid var(--white-line); display: block; min-width: 0; padding: 18px 0; }
+.buyer-enquiry label > span, .buyer-enquiry__choice legend { color: rgba(243,240,231,.8); display: block; font: 9px/1.5 var(--mono); letter-spacing: .06em; margin-bottom: 10px; text-transform: uppercase; }
+.buyer-enquiry input:not([type='radio']), .buyer-enquiry select, .buyer-enquiry textarea { background: transparent; border: 0; border-radius: 0; color: var(--cream); font: 400 21px var(--serif); min-height: 35px; outline: 0; padding: 4px 0; resize: vertical; width: 100%; }
+.buyer-enquiry input::placeholder, .buyer-enquiry textarea::placeholder { color: rgba(243,240,231,.5); }
+.buyer-enquiry select { appearance: none; background-image: linear-gradient(45deg, transparent 50%, var(--cream) 50%), linear-gradient(135deg, var(--cream) 50%, transparent 50%); background-position: calc(100% - 13px) 15px, calc(100% - 8px) 15px; background-repeat: no-repeat; background-size: 5px 5px, 5px 5px; cursor: pointer; padding-right: 22px; }
+.buyer-enquiry select option { background: var(--navy); color: var(--cream); }
+.buyer-enquiry input:focus-visible, .buyer-enquiry select:focus-visible, .buyer-enquiry textarea:focus-visible { box-shadow: 0 2px 0 var(--lime); }
+.buyer-enquiry__pair { display: grid; gap: 22px; grid-template-columns: 1fr 1fr; }
+.buyer-enquiry__budget { align-items: center; display: flex; gap: 8px; }
+.buyer-enquiry__budget > span { color: var(--lime); font: 12px var(--mono); }
+.buyer-enquiry__budget input { min-width: 0; }
+.buyer-enquiry__choice { border: 0; border-bottom: 1px solid var(--white-line); margin: 18px 0 0; min-width: 0; padding: 0 0 18px; }
+.buyer-enquiry__choice label { align-items: center; border: 1px solid var(--white-line); cursor: pointer; display: inline-flex; font: 10px var(--mono); gap: 8px; margin: 4px 7px 4px 0; min-height: 44px; padding: 10px 12px; }
+.buyer-enquiry__choice label.is-selected { background: var(--lime); border-color: var(--lime); color: var(--navy); }
+.buyer-enquiry__choice input { accent-color: var(--blue); margin: 0; }
+.buyer-enquiry__choice label:focus-within { outline: 2px solid var(--cream); outline-offset: 3px; }
+.buyer-enquiry__actions { align-items: center; display: flex; flex-wrap: wrap; gap: 18px; justify-content: space-between; margin-top: 25px; }
+.buyer-enquiry__back { background: transparent; border: 0; color: var(--cream); cursor: pointer; font: 10px var(--mono); letter-spacing: .06em; min-height: 44px; padding: 0; text-transform: uppercase; }
+.buyer-enquiry__next { align-items: center; background: var(--lime); border: 0; color: var(--navy); cursor: pointer; display: inline-flex; font: 9px var(--mono); gap: 30px; justify-content: space-between; letter-spacing: .06em; min-height: 53px; padding: 0 18px; text-transform: uppercase; }
+.buyer-enquiry__next > span { font-size: 16px; }
+.buyer-enquiry button:disabled { cursor: wait; opacity: .6; }
+.buyer-enquiry__review dl { border-top: 1px solid var(--white-line); margin: 0; }
+.buyer-enquiry__review dl > div { border-bottom: 1px solid var(--white-line); display: grid; gap: 20px; grid-template-columns: 100px 1fr; padding: 14px 0; }
+.buyer-enquiry__review dt { color: rgba(243,240,231,.7); font: 9px/1.6 var(--mono); text-transform: uppercase; }
+.buyer-enquiry__review dd { font: 20px/1.3 var(--serif); margin: 0; overflow-wrap: anywhere; white-space: pre-wrap; }
+.buyer-enquiry__help { color: rgba(243,240,231,.7); font: 10px/1.8 var(--mono); }
+.buyer-enquiry__help { margin: 20px 0 0; }
+.buyer-enquiry__error { border-left: 2px solid #ffbf9f; color: #ffbf9f; font: 12px/1.7 var(--sans); margin: 24px 0 0; padding-left: 14px; }
+.buyer-enquiry__success { font-size: 14px; line-height: 1.8; }
+.buyer-enquiry__success a { color: var(--lime); text-decoration: underline; text-underline-offset: 4px; }
+.buyer-enquiry__reference { border-bottom: 1px solid var(--white-line); border-top: 1px solid var(--white-line); margin: 28px 0; padding: 20px 0; }
+.buyer-enquiry__reference strong { color: var(--lime); display: block; font: 12px/1.6 var(--mono); margin-top: 10px; overflow-wrap: anywhere; }
 
 .footer { background: var(--cream); overflow: hidden; padding: 100px 4vw 22px; }
 .footer__headline { font: 400 clamp(85px, 15vw, 235px)/.66 var(--serif); letter-spacing: -.075em; }
@@ -243,6 +259,7 @@ a:hover .arrow, button:hover .arrow { transform: translate(4px, -4px); }
 .footer__columns > div { display: flex; flex-direction: column; font-size: 11px; line-height: 1.8; }
 .footer__columns .micro { color: var(--blue); margin-bottom: 13px; }
 .footer__columns p { margin: 0; }
+.footer__phone { color: var(--blue); font-size: 22px; font-weight: 600; }
 .footer__mark { align-items: center; border: 1px solid var(--dark-line); border-radius: 50%; display: flex; flex-direction: column; height: 115px; justify-content: center; justify-self: end; position: relative; width: 115px; }
 .footer__mark::before, .footer__mark::after { background: var(--dark-line); content: ''; left: 50%; position: absolute; top: 50%; transform: translate(-50%, -50%); }
 .footer__mark::before { height: 1px; width: 126%; }
@@ -254,6 +271,8 @@ a:hover .arrow, button:hover .arrow { transform: translate(4px, -4px); }
 .footer__legal { border-top: 1px solid var(--dark-line); display: flex; font: 7px var(--mono); justify-content: space-between; letter-spacing: .09em; padding-top: 17px; text-transform: uppercase; }
 
 @media (max-width: 940px) {
+  .site-nav { grid-template-columns: 1fr auto; }
+  .site-nav nav { display: none; }
   .grid-lines { grid-template-columns: repeat(4, 1fr); }
   .grid-lines i:nth-child(n + 5) { display: none; }
   .hero__title { font-size: 12vw; top: 29%; }
@@ -281,9 +300,10 @@ a:hover .arrow, button:hover .arrow { transform: translate(4px, -4px); }
   .loader__top { left: 18px; right: 18px; top: 20px; }
   .loader__destination { bottom: 25px; font-size: 7px; left: 18px; max-width: 70%; }
   .hero { min-height: 760px; }
-  .site-nav { grid-template-columns: 1fr auto; padding: 0 18px; }
-  .site-nav nav { display: none; }
-  .nav-contact { font-size: 7px; }
+  .site-nav { gap: 14px; grid-template-columns: 1fr; padding: 18px; }
+  .nav-contact { display: flex; justify-content: space-between; justify-self: stretch; min-height: 38px; padding: 0 0 8px; }
+  .nav-contact strong { font-size: 17px; }
+  .nav-contact > span { font-size: 7px; }
   .hero__title { font-size: 19vw; left: 18px; line-height: .78; top: 24%; }
   .hero__title span:last-child { margin-left: 0; }
   .hero__panel { bottom: 139px; padding: 20px; right: 18px; top: auto; width: calc(100% - 76px); }
@@ -333,11 +353,14 @@ a:hover .arrow, button:hover .arrow { transform: translate(4px, -4px); }
   .inquiry { gap: 70px; padding: 95px 20px 110px; }
   .inquiry__intro { padding: 0; }
   .inquiry__intro h2 { font-size: 17vw; }
-  .trip-planner { min-height: 0; padding: 18px; }
-  .trip-planner__pair { gap: 12px; }
-  .trip-planner input:not([type='radio']), .trip-planner select, .trip-planner textarea { font-size: 18px; }
-  .trip-planner input[type='date'] { font-size: 11px; }
-  .trip-planner__next { gap: 12px; padding: 0 12px; }
+  .buyer-enquiry { padding: 18px; }
+  .buyer-enquiry__pair { gap: 0; grid-template-columns: 1fr; }
+  .buyer-enquiry__steps { gap: 16px; }
+  .buyer-enquiry__steps li { font-size: 8px; }
+  .buyer-enquiry input:not([type='radio']), .buyer-enquiry select, .buyer-enquiry textarea { font-size: 20px; }
+  .buyer-enquiry__next { gap: 16px; padding: 0 14px; }
+  .buyer-enquiry__review dl > div { gap: 12px; grid-template-columns: 74px 1fr; }
+  .buyer-enquiry__review dd { font-size: 18px; }
   .footer { padding: 80px 20px 20px; }
   .footer__headline { font-size: 19vw; }
   .footer__headline i { margin-left: 10vw; }

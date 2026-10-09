@@ -1,19 +1,31 @@
 {
-  "name": "goodspeed-real-esteate",
+  "name": "goodspeed-real-estate",
   "private": true,
   "version": "0.1.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "concurrently -k -n api,web \"npm run dev:api\" \"npm run dev:web\"",
+    "dev:api": "node --env-file-if-exists=.env server/index.js",
+    "dev:web": "node --env-file-if-exists=.env node_modules/vite/bin/vite.js",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "start": "node --env-file-if-exists=.env server/index.js",
+    "test": "node --test server/*.test.js"
+  },
+  "engines": {
+    "node": ">=24.0.0"
   },
   "dependencies": {
     "@vitejs/plugin-react": "latest",
+    "express": "^5.2.1",
+    "express-rate-limit": "^8.7.1",
     "gsap": "latest",
+    "nodemailer": "^10.0.16",
     "react": "latest",
     "react-dom": "latest",
     "vite": "latest"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "concurrently": "^10.0.6"
+  }
 }
