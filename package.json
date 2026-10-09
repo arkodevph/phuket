@@ -13,9 +13,10 @@
     "test": "node --test server/*.test.js"
   },
   "engines": {
-    "node": ">=24.0.0"
+    "node": "24.x"
   },
   "dependencies": {
+    "@vercel/blob": "^2.8.1",
     "@vitejs/plugin-react": "latest",
     "express": "^5.2.1",
     "express-rate-limit": "^8.7.1",

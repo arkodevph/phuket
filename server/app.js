@@ -27,15 +27,15 @@ export function createApp({ store, notifications, staticDirectory, trustProxyHop
     if (!request.is('application/json')) return response.status(415).json({ message: 'Please submit your enquiry as JSON.' });
     if (request.get('sec-fetch-site') === 'cross-site') return response.status(403).json({ message: 'Please submit your enquiry through this website.' });
     next();
-  }, express.json({ limit: '16kb' }), (request, response) => {
+  }, express.json({ limit: '16kb' }), async (request, response) => {
     const { value, errors } = validateEnquiry(request.body);
     if (Object.keys(errors).length) return response.status(422).json({ message: 'Please review your enquiry details.', errors });
     const requestKey = request.get('Idempotency-Key') || randomUUID();
     if (!/^[a-zA-Z0-9_-]{16,80}$/.test(requestKey)) return response.status(400).json({ message: 'Please retry your enquiry with a valid request reference.' });
-    const result = store.create(value, requestKey);
+    const result = await store.create(value, requestKey);
     if (result.conflict) return response.status(409).json({ message: 'This request reference was already used. Please review your details and try again.' });
     response.status(result.duplicate ? 200 : 201).json({ id: result.id, receivedAt: result.receivedAt });
-    // Storage and its notification jobs are committed before acknowledging receipt.
+    // Storage is complete before acknowledging receipt. Local storage also queues notifications here.
     notifications?.kick();
   });
 
