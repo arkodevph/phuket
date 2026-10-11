@@ -4,6 +4,14 @@
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "rewrites": [
+    { "source": "/privacy-policy", "destination": "/privacy-policy/index.html" },
+    { "source": "/privacy-policy/", "destination": "/privacy-policy/index.html" },
+    { "source": "/terms-and-conditions", "destination": "/terms-and-conditions/index.html" },
+    { "source": "/terms-and-conditions/", "destination": "/terms-and-conditions/index.html" },
+    { "source": "/cookies", "destination": "/cookies/index.html" },
+    { "source": "/cookies/", "destination": "/cookies/index.html" },
+    { "source": "/property-disclaimer", "destination": "/property-disclaimer/index.html" },
+    { "source": "/property-disclaimer/", "destination": "/property-disclaimer/index.html" },
     { "source": "/(.*)", "destination": "/index.html" }
   ],
   "functions": {

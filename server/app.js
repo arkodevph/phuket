@@ -41,7 +41,7 @@ export function createApp({ store, notifications, staticDirectory, trustProxyHop
 
   app.use('/api', (_request, response) => response.status(404).json({ message: 'Endpoint not found.' }));
   if (staticDirectory && existsSync(join(staticDirectory, 'index.html'))) {
-    app.use(express.static(staticDirectory, { index: false }));
+    app.use(express.static(staticDirectory));
     app.use((request, response, next) => {
       if (request.method !== 'GET' && request.method !== 'HEAD') return next();
       response.sendFile(join(staticDirectory, 'index.html'));

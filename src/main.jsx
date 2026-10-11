@@ -7,6 +7,7 @@ import karonImage from './assets/karon.png';
 import kataImage from './assets/kata.png';
 import kamalaImage from './assets/kamala.png';
 import BuyerEnquiryForm from './BuyerEnquiryForm.jsx';
+import LegalLinks from './LegalLinks.jsx';
 import './styles.css';
 
 const australianContact = {
@@ -22,10 +23,10 @@ const places = [
     name: 'Patong',
     type: 'Sea-view residences',
     mood: 'Energy on the bay',
-    note: 'High-demand west-coast living with immediate access to dining, nightlife and the island’s busiest rental market.',
+    note: 'West-coast living with access to dining, nightlife and the bay. Compare specific properties and local rental rules before deciding.',
     image: patongImage,
     coordinates: '07° 53′ N / 98° 17′ E',
-    tags: ['Condominiums', 'Rental yield'],
+    tags: ['Condominiums', 'Coastal living'],
   },
   {
     id: '02',
@@ -55,14 +56,14 @@ const places = [
     note: 'Private hillside addresses, cinematic sea views and discreet luxury for owners planning a longer horizon.',
     image: kamalaImage,
     coordinates: '07° 57′ N / 98° 17′ E',
-    tags: ['Land & villas', 'Long stay'],
+    tags: ['Villas', 'Long stay'],
   },
 ];
 
 const pathways = [
-  ['01', 'Holiday home', 'A turn-key base for the season, managed while you are away.'],
-  ['02', 'Investment', 'New-build and resale options selected for demand, location and durability.'],
-  ['03', 'Retirement', 'A considered move with lifestyle, ownership structure and practicalities aligned.'],
+  ['01', 'Holiday home', 'Explore a base for your visits and the practicalities of owning from overseas.'],
+  ['02', 'Investment', 'Compare purchase costs, local rental rules and risks with independent advice.'],
+  ['03', 'Retirement', 'Consider lifestyle, ownership options and visa requirements with qualified advisers.'],
 ];
 
 function Arrow() {
@@ -220,7 +221,7 @@ function App() {
           <p data-reveal>For Australians buying property in Thailand, we help connect your plans with the right Phuket location. Explore homes for holidays, investment or retirement with a clear brief and a considered shortlist.</p>
           <div className="promise__facts">
             <div><b>01</b><span>Beautiful beaches</span></div>
-            <div><b>02</b><span>Strong investment potential</span></div>
+            <div><b>02</b><span>Plan with independent advice</span></div>
             <div><b>03</b><span>Modern property choices</span></div>
             <div><b>04</b><span>Relaxed tropical lifestyle</span></div>
           </div>
@@ -250,6 +251,7 @@ function App() {
             <p>{place.note}</p>
             <div className="place-note__tags">{place.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
           </article>
+          <p className="places__notice">These neighbourhood guides and images are illustrative. They are not verified property listings or offers for sale. <a href="/property-disclaimer/">Read our property and ownership notice ↗</a></p>
         </section>
 
         <section className="pathways">
@@ -268,12 +270,12 @@ function App() {
             <h2>Clarity before<br /><i>commitment.</i></h2>
             <p>Buying from Australia starts with a clear brief: your budget in AUD, preferred location, whether you plan to pay cash or need finance, and when you want to buy. We use those details to guide your property search in Thailand.</p>
             <ol><li><span>01</span>Define your use and budget</li><li><span>02</span>Build a location-led shortlist</li><li><span>03</span>View, compare and verify</li><li><span>04</span>Coordinate independent professionals</li></ol>
-            <small>Placeholder information only. Buyers should take independent legal and financial advice.</small>
+            <small>Foreign ownership depends on the property, your eligibility and the available condominium quota. Take independent Thai legal and financial advice. <a href="/property-disclaimer/">Read our ownership notice ↗</a></small>
           </div>
         </section>
 
         <section className="quote">
-          <span>“</span><blockquote>We arrived looking for a view.<br />We left understanding the decision.</blockquote><cite>— Placeholder buyer / Sydney to Phuket</cite>
+          <span aria-hidden="true">↗</span><blockquote>Start with the place.<br />Understand the purchase.</blockquote><cite>Goodspeed Real Estate / Our approach</cite>
         </section>
 
         <section className="inquiry" id="inquire">
@@ -284,7 +286,7 @@ function App() {
             <a className="inquiry__phone" href={`tel:${australianContact.number}`}><span>Call our Australian number</span><strong>{australianContact.display}</strong><Arrow /></a>
             <p className="inquiry__international">From overseas: <a href={`tel:${australianContact.number}`}>{australianContact.international}</a></p>
             {australianContact.email && <a className="inquiry__email" href={`mailto:${australianContact.email}`}>{australianContact.email}</a>}
-            <div className="inquiry__direct"><span>01</span><span>Tell us about your property plans</span><span>02</span><span>Review your enquiry</span><span>03</span><span>Send it to our Australian contact</span></div>
+            <div className="inquiry__direct"><span>01</span><span>Tell us about your property plans</span><span>02</span><span>Review your enquiry</span><span>03</span><span>Receive your enquiry reference</span></div>
           </div>
           <BuyerEnquiryForm contact={australianContact} />
         </section>
@@ -297,7 +299,7 @@ function App() {
             <div><span className="micro">Australian contact</span><a className="footer__phone" href={`tel:${australianContact.number}`}>{australianContact.display}</a><a href={`tel:${australianContact.number}`}>{australianContact.international} from overseas</a>{australianContact.email && <a href={`mailto:${australianContact.email}`}>{australianContact.email}</a>}<a href="#inquire">Make a property enquiry ↗</a></div>
             <a className="footer__mark" href="#top" aria-label="Back to top"><b>G</b><span>↑</span><small>Back to top</small></a>
           </div>
-          <div className="footer__legal"><span>© 2026 Goodspeed Real Estate</span><span>Information / privacy / terms</span><span>For Australian buyers · Phuket, Thailand</span></div>
+          <div className="footer__legal"><span>© 2026 Goodspeed Real Estate</span><LegalLinks /><span>For Australian buyers · Thailand</span></div>
         </footer>
       </main>
     </div>

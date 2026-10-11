@@ -14,6 +14,16 @@ function createRequestKey() {
   return Array.from(crypto.getRandomValues(new Uint8Array(16)), (value) => value.toString(16).padStart(2, '0')).join('');
 }
 
+function CollectionNotice({ contact }) {
+  return (
+    <aside className="buyer-enquiry__notice" aria-label="How we handle your enquiry">
+      <p>Goodspeed Real Estate collects your contact details and property preferences to handle your enquiry and contact you about it. Sending an enquiry does not subscribe you to marketing.</p>
+      <p>Enquiries are stored with our hosting provider in Singapore. Hosting and support may involve other countries. Our legal operator’s details, staff processing locations and retention schedule are awaiting confirmation; records do not currently expire automatically. For privacy requests, call <a href={`tel:${contact.number}`}>{contact.display}</a>.</p>
+      <p>Read the <a href="/privacy-policy/" target="_blank" rel="noopener noreferrer">Privacy Policy (opens in a new tab)</a> and <a href="/terms-and-conditions/" target="_blank" rel="noopener noreferrer">Terms &amp; Conditions (opens in a new tab)</a> before sending.</p>
+    </aside>
+  );
+}
+
 export default function BuyerEnquiryForm({ contact }) {
   const [enquiry, setEnquiry] = useState(initialEnquiry);
   const [reviewing, setReviewing] = useState(false);
@@ -127,8 +137,8 @@ export default function BuyerEnquiryForm({ contact }) {
             ))}
           </fieldset>
           <label htmlFor="buyer-timeframe"><span>Expected buying timeframe *</span><select id="buyer-timeframe" name="timeframe" required value={enquiry.timeframe} onChange={setField}><option value="">When are you looking to buy?</option>{buyingTimeframes.map((timeframe) => <option key={timeframe}>{timeframe}</option>)}</select></label>
-          <label htmlFor="buyer-note"><span>Anything else? (optional)</span><textarea id="buyer-note" name="note" rows={2} maxLength={1000} value={enquiry.note} onChange={setField} placeholder="Property type, must-haves or questions…" /></label>
-          <p className="buyer-enquiry__help">We’ll use your email and mobile number to contact you about your property enquiry.</p>
+          <label htmlFor="buyer-note"><span>Anything else? (optional)</span><textarea id="buyer-note" name="note" rows={2} maxLength={1000} value={enquiry.note} onChange={setField} aria-describedby="buyer-note-help" placeholder="Property type, must-haves or questions…" /><small id="buyer-note-help" className="buyer-enquiry__note-help">Please leave out passport numbers, bank details, passwords, health information and other sensitive documents or details.</small></label>
+          <CollectionNotice contact={contact} />
           <div className="buyer-enquiry__actions"><button className="buyer-enquiry__next" type="submit">Review enquiry <span aria-hidden="true">↗</span></button></div>
         </form>
       ) : (
@@ -144,6 +154,7 @@ export default function BuyerEnquiryForm({ contact }) {
             {enquiry.note.trim() && <div><dt>Extra details</dt><dd>{enquiry.note.trim()}</dd></div>}
           </dl>
           <p className="buyer-enquiry__help">Check your details, then send your enquiry to Goodspeed Real Estate.</p>
+          <CollectionNotice contact={contact} />
           {submitError && <p className="buyer-enquiry__error" role="alert">{submitError}</p>}
           <div className="buyer-enquiry__actions">
             <button className="buyer-enquiry__back" type="button" disabled={submitting} onClick={() => { setReviewing(false); setSubmitError(''); focusHeading(); }}>← Edit details</button>

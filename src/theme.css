@@ -1,0 +1,13 @@
+@import url('/fonts/fonts.css');
+
+:root {
+  --blue: #2446c6;
+  --navy: #0d1730;
+  --cream: #f3f0e7;
+  --lime: #caff4d;
+  --white-line: rgba(243, 240, 231, .22);
+  --dark-line: rgba(13, 23, 48, .2);
+  --serif: 'Instrument Serif', Georgia, serif;
+  --sans: 'Manrope', sans-serif;
+  --mono: 'DM Mono', monospace;
+}

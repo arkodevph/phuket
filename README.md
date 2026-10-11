@@ -2,6 +2,12 @@
 
 Property enquiry website for Australians interested in buying in Thailand. The React frontend submits enquiries to a Node.js / Express backend. Local development stores enquiries in SQLite; Vercel production stores each enquiry as a private Vercel Blob.
 
+## Legal pages and outstanding business details
+
+The homepage footer links to `/privacy-policy/`, `/terms-and-conditions/`, `/cookies/` and `/property-disclaimer/`. These are static HTML pages included in the Vite build, readable without JavaScript. Shared colours/typefaces are in `src/theme.css`; the fonts are self-hosted under `public/fonts/` with their licences. Edit the corresponding `index.html` files and update their review dates whenever the practices change. The form's collection notice is in `src/BuyerEnquiryForm.jsx`.
+
+See the [legal audit and remaining gaps](docs/legal-audit.md), [questions prepared for the client](docs/client-legal-questionnaire.md), and [proposed privacy operations](docs/privacy-operations.md). Legal entity/address, privacy contact, processing countries, retention, provider/access arrangements and applicable law still need client confirmation and qualified legal review. Publishing these pages does not establish full compliance. Enquiries have no automatic expiry; do not claim a deletion schedule that is not implemented. Review the notices and operations before enabling notifications, referrals, tracking or other new services.
+
 ## Run locally
 
 Use Node.js 24 or newer.
